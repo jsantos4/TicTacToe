@@ -8,7 +8,7 @@ bool spaceAvailable() {
 	for (int i = 0; i < 3; ++i) {
 		for (int j = 0; j < 3; ++j) {
 			if (board[i][j] == 0)
-				return true;
+				return true;			//If any space hasn't been played yet...
 		}
 	}
 	return false;
@@ -67,7 +67,7 @@ int main() {
 
 		turn((((int)inputSpace[0]) - '0'), (((int)inputSpace[2] - '0')));	//Not a fan of this either, will revisit
 		xTurn = !xTurn;
-	}while (checkWin() == 0 && spaceAvailable());
+	}while (checkWin() == 0 && spaceAvailable());				//Until someone wins or all spaces have been filled, loop
 
 	if (checkWin() == 0)
 		cout << "It's a draw.";
