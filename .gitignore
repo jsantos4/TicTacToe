@@ -34,3 +34,4 @@
 # Eclipse Debug Directory
 Debug/*
 
+.vscode/*
