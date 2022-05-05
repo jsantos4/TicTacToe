@@ -16,9 +16,9 @@ int checkspace(unsigned int space){
 		return 0;
 }
 
-void turn(unsigned int space, int board) {
+void turn(unsigned int space, int player) {
 
-	if (board > 0)
+	if (player > 0)
 		xboard = xboard | space;
 	else
 		oboard = oboard | space;
