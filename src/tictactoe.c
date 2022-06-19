@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-unsigned int xboard, oboard, displayboard = 0;
+unsigned int xboard, oboard = 0;
 const unsigned int spaceCodes[9] = { 2148008064, 1073774592, 536872968, 134479872, 67125316, 33555456, 8519682, 4202496, 2097696 };
 
 int checkwin() {
@@ -26,7 +26,7 @@ void turn(unsigned int space, int player) {
 
 int main() {
 	unsigned int space;
-	int player = 1;
+	int player = -1;
 	printf("SPACES:\n0 | 1 | 2\n3 | 4 | 5\n6 | 7 | 8\n");
 	
 	while (checkwin() == 0) {
@@ -36,19 +36,19 @@ int main() {
 			scanf("%d", &space);
 		}
 
-		turn(spaceCodes[space], player);
 		player *= -1;
+		turn(spaceCodes[space], player);
 
 		//Display board
 		printf("\n");
-		for (int i = 1; i < 10; i++) {
-			if (spaceCodes[i-1] & xboard)
+		for (int i = 0; i < 9; i++) {
+			if (spaceCodes[i] & xboard )
 				printf("X | ");
-			else if (spaceCodes[i-1] & oboard)
+			else if (spaceCodes[i] & oboard)
 				printf("O | ");
 			else
 				printf("  | ");
-			if (i % 3 == 0)
+			if ((i + 1) % 3 == 0)
 				printf("\n");
 		}
 		printf("\n");
