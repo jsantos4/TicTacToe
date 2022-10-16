@@ -31,10 +31,9 @@ int main() {
 	
 	while (checkwin() == 0) {
 
-		scanf("%u", &space);
-		while (checkspace(space) != 0){
+		do {
 			scanf("%d", &space);
-		}
+		} while (checkspace(space) != 0);
 
 		turn(spaceCodes[space], player);
 		player *= -1;
